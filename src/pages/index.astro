@@ -14,17 +14,19 @@ import Layout from "../layouts/Layout.astro";
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
   const menu = document.querySelector(".menu");
+  const header = document.querySelector("header");
 
-  if (burger && nav) {
+  if (burger && nav && header) {
     burger.addEventListener("click", () => {
       burger.classList.toggle("active");
       nav.classList.toggle("active");
+      header.classList.toggle("active"); // Tilføj eller fjern "active" på header
 
-      // Tilføj eller fjern "invert" på body baseret på nav's tilstand
+      // tilføjer eller fjerner "invert" på body baseret på nav's tilstand
       if (nav.classList.contains("active")) {
-        document.body.classList.remove("invert"); // Fjern "invert", når menuen er åben
+        document.body.classList.remove("invert"); // fjerner "invert", når menuen er åben
       } else {
-        document.body.classList.add("invert"); // Tilføj "invert", når menuen lukkes
+        document.body.classList.add("invert"); // tilføjer "invert", når menuen lukkes
       }
     });
   }
@@ -33,7 +35,7 @@ import Layout from "../layouts/Layout.astro";
     menu.addEventListener("click", () => {
       burger.classList.remove("active");
       nav.classList.remove("active");
-      document.body.classList.add("invert"); // Tilføj "invert", når menuen lukkes
+      document.body.classList.add("invert"); // tilføjer "invert", når menuen lukkes
     });
   }
 </script>

@@ -36,6 +36,10 @@ h2 {
   font-family: "Ballet", cursive;
 }
 
+p {
+  font-family: "Lora", serif;
+}
+
 @font-face {
   font-family: "helveticaultra_compressed";
   src:

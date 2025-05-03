@@ -23,30 +23,18 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  // Fjern klassen "invert" fra body og sørg for, at den ikke tilføjes igen
+  // Fjern klassen "invert" fra body én gang ved indlæsning
   document.body.classList.remove("invert");
 
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
-  const menu = document.querySelector(".menu");
+  const header = document.querySelector("header");
 
-  if (burger && nav) {
+  if (burger && nav && header) {
     burger.addEventListener("click", () => {
       burger.classList.toggle("active");
       nav.classList.toggle("active");
-
-      // Sørg for, at "invert" ikke tilføjes igen
-      document.body.classList.remove("invert");
-    });
-  }
-
-  if (menu && burger && nav) {
-    menu.addEventListener("click", () => {
-      burger.classList.remove("active");
-      nav.classList.remove("active");
-
-      // Sørg for, at "invert" ikke tilføjes igen
-      document.body.classList.remove("invert");
+      header.classList.toggle("active"); // Tilføj eller fjern "active" på header
     });
   }
 </script>
@@ -67,5 +55,16 @@ import Layout from "../layouts/Layout.astro";
     height: 100px;
     margin: 0 auto;
     display: block;
+  }
+
+  body {
+    background: radial-gradient(
+      circle,
+      rgb(162, 190, 242) 0%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    height: 100vh;
+    overflow: hidden;
   }
 </style>
