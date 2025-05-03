@@ -1,0 +1,52 @@
+@keyframes invert_kf {
+  0%,
+  50% {
+    filter: invert(0);
+  }
+
+  51%,
+  100% {
+    filter: invert(1);
+  }
+}
+
+.invert {
+  animation-name: invert_kf;
+  animation-duration: 0.2s; /* Juster varigheden, hvis nødvendigt */
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; /* Linear timing sikrer jævn kontrol */
+}
+
+/* Skrifttyper */
+h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: #000;
+  text-align: center;
+  font-family: "Ballet", cursive;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-top: -5px;
+  font-family: "Ballet", cursive;
+}
+
+@font-face {
+  font-family: "helveticaultra_compressed";
+  src:
+    url("/Helvetica-UltraCompressed-Regular/helvetica_ultra_compressed-webfont.woff2")
+      format("woff2"),
+    url("Helvetica-UltraCompressed-Regular/helvetica_ultra_compressed-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  overflow-x: hidden;
+}

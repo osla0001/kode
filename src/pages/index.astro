@@ -1,11 +1,45 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
+import TextArea from "../components/TextArea.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <Header />
+  <TextArea />
 </Layout>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+  const menu = document.querySelector(".menu");
+
+  if (burger && nav) {
+    burger.addEventListener("click", () => {
+      burger.classList.toggle("active");
+      nav.classList.toggle("active");
+
+      // Tilføj eller fjern "invert" på body baseret på nav's tilstand
+      if (nav.classList.contains("active")) {
+        document.body.classList.remove("invert"); // Fjern "invert", når menuen er åben
+      } else {
+        document.body.classList.add("invert"); // Tilføj "invert", når menuen lukkes
+      }
+    });
+  }
+
+  if (menu && burger && nav) {
+    menu.addEventListener("click", () => {
+      burger.classList.remove("active");
+      nav.classList.remove("active");
+      document.body.classList.add("invert"); // Tilføj "invert", når menuen lukkes
+    });
+  }
+</script>
+
+<style>
+  body {
+    height: 100vh;
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Header />
+  <div class="margin"></div>
+  <section class="text" data-aos="flip-left">
+    <h1>StarLight</h1>
+    <p>
+      På denne side har du mulighed for at kommunikere på klubberne i
+      nattelivet. Er musikken for høj, er dine venner for langt væk eller vil du
+      ønske en sang til DJ, så er dette hjemmesiden for dig. Skriv din tekst i
+      tekstfeltet og strobelyset fanger din søgte opmærksomhed, og lad lyset fra
+      din telefon være din stjerne i nattelivet.
+    </p>
+    <div>
+      <img src="/Logo.svg" alt="" />
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Fjern klassen "invert" fra body og sørg for, at den ikke tilføjes igen
+  document.body.classList.remove("invert");
+
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+  const menu = document.querySelector(".menu");
+
+  if (burger && nav) {
+    burger.addEventListener("click", () => {
+      burger.classList.toggle("active");
+      nav.classList.toggle("active");
+
+      // Sørg for, at "invert" ikke tilføjes igen
+      document.body.classList.remove("invert");
+    });
+  }
+
+  if (menu && burger && nav) {
+    menu.addEventListener("click", () => {
+      burger.classList.remove("active");
+      nav.classList.remove("active");
+
+      // Sørg for, at "invert" ikke tilføjes igen
+      document.body.classList.remove("invert");
+    });
+  }
+</script>
+
+<style>
+  .margin {
+    margin-top: 120px;
+    background-color: white;
+  }
+
+  .text {
+    max-width: 74ch;
+    margin: 0 auto;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+  }
+</style>
